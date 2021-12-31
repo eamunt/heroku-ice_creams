@@ -5,8 +5,6 @@ import pickle
 from imblearn.over_sampling import SMOTE
 
 df = pd.read_csv("data/Ice_cream_R.csv")
-# varie_number = {1: 'Vanilla	', 2: 'Chocolate', 3: 'Strawberry'}
-
 X = df.iloc[:,[1,3,4]]
 y = df.ice_cream
 
