@@ -1,0 +1,54 @@
+{% extends "material/base.html" %}
+{% block content %}
+<div style="margin: 0 auto; width: 50%;">
+    <h3>Ice Cream Predictor</h3>
+    <h4>Please enter input:</h4>
+    <form action="{{url_for('analyze')}}" method="post">
+        
+        <table>
+            <tr>
+                <td><label for="video">Video:</label></td>
+                <td><input type="text" id="video" name="video"></td>
+            </tr>
+            <tr>
+                <td><label for="puzzle">Puzzle:</label></td>
+                <td><input type="text" id="puzzle" name="puzzle"></td>
+            </tr>
+            <tr>
+                <p>Model:</p>
+                <input type="radio" id="dt" name="model" value="tree">
+                <label for="dt">Decision Tree</label><br>
+                <input type="radio" id="nb" name="model" value="bayes">
+                <label for="nb">Naive Bayes</label><br>
+                <input type="radio" id="knn" name="model" value="knn">
+                <label for="knn">KNN</label>
+            </tr>
+            <tr>
+                
+                <p>Giới tính:</p>
+                <input type="radio" id="nam" name="female" value="0">
+                <label for="nam">Nam</label><br>
+                <input type="radio" id="nu" name="female" value="1">
+                <label for="nu">Nữ</label><br>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" name="submit" type="submit" value="Predict">
+                    <input type="reset" name="reset" value="Clear">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <ul>
+        <li>Giới tính: {{ gender }}</li>
+        <li>Video score: {{ video }}</li>
+        <li>Puzzle score: {{ puzzle }}</li>
+    </ul>
+    <h4>Your ice-cream class is: {{ result_prediction }} </h4>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+
+{% endblock %}
